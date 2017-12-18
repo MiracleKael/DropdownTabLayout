@@ -9,6 +9,21 @@
 
 #使用方式
 
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+	
+```
+dependencies {
+	        compile 'com.github.jiaojingLdy:DropdownTabLayoutSample:V1.0'
+	}
+```
+
 
 
 
