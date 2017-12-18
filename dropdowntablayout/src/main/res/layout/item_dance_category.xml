@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/dance_name"
@@ -14,10 +14,10 @@
         android:textSize="14sp"
         android:textColor="#999999"/>
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/iv_selected"
         android:visibility="invisible"
-        android:background="@drawable/ic_selected"
+        app:srcCompat="@drawable/ic_selected_24dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"

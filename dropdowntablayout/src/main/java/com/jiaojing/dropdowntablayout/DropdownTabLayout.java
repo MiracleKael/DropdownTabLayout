@@ -1,13 +1,11 @@
 package com.jiaojing.dropdowntablayout;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -44,7 +42,6 @@ public class DropdownTabLayout extends TabLayout {
 
     private SparseArray sparseArray = new SparseArray<Integer>();
     public void setUpTitle( List<List<String>> titleList){
-        Log.e(TAG, "size==="+  titleList.size());
         for (int i=0; i< titleList.size(); i++){
 //            addTab(newTab().setText(titleList.get(i).get(0)));//默认=取第一个作为首次加载显示的tab名字
             getTabAt(i).setCustomView(getTabView(i, titleList.get(i)));
@@ -60,7 +57,8 @@ public class DropdownTabLayout extends TabLayout {
     public View getTabView(final int position, final List<String> titleList){
         final View view = LayoutInflater.from(mContext).inflate(R.layout.item_tab, null);
         final TextView tabText = view.findViewById(R.id.tab_text);
-        tabText.setTextColor(Color.parseColor("#999999"));
+//        tabText.setTextColor(Color.parseColor("#999999"));
+        tabText.setTextColor(getResources().getColor(R.color.colorTabViewText));
         tabText.setText(titleList.get(0));
         ImageView tab_img = view.findViewById(R.id.tab_img);
         if(titleList.size() == 1) {
@@ -131,35 +129,15 @@ public class DropdownTabLayout extends TabLayout {
 
                             mViewPager.setCurrentItem(tabPosition);
                             tabText.setText(titleList.get(position));
+
+                            onTabSelectedListener.selected(tabPosition, position);
+
                             //关闭窗口
                             popupWindow.dismiss();
 
                         }
                     });
 
-//                    if(danceChooseRecord == titleList.get(position)){
-//                        ivSelected.setVisibility(View.VISIBLE);
-//                    }else {
-//                        ivSelected.setVisibility(View.INVISIBLE);
-//                    }
-
-//                    view.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            //切换到第三个标签
-//                            mVideoPager.setCurrentItem(2);
-//                            //记录选择了哪种舞蹈
-//                            danceChooseRecord = danceNames.get(position).getName();
-//                            //tab字体改变
-//                            TabLayout.Tab tabAt = mVideoTab.getTabAt(2);
-//                            changeTabStatus(tabAt,true,danceNames.get(position).getName());
-//                            //窗口消失
-//                            popupWindow.dismiss();
-//                            //刷新数据
-//                            changeData(2, danceNames.get(position).getId());
-//
-//                        }
-//                    });
                     return view;
                 }
             });

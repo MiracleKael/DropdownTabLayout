@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_centerInParent="true"
         android:orientation="horizontal"
@@ -17,11 +17,11 @@
             android:textSize="14sp"
             />
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/tab_img"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="5dp"
-            android:background="@drawable/ic_paixu"
+            app:srcCompat="@drawable/ic_dropdown_24dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
