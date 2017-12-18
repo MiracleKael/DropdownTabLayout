@@ -20,6 +20,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import static android.R.attr.x;
+
 /**
  * Created by jiaojing on 2017/12/11.
  */
@@ -41,6 +43,7 @@ public class DropdownTabLayout extends TabLayout {
     }
 
     private SparseArray sparseArray = new SparseArray<Integer>();
+
     public void setUpTitle( List<List<String>> titleList){
         for (int i=0; i< titleList.size(); i++){
 //            addTab(newTab().setText(titleList.get(i).get(0)));//默认=取第一个作为首次加载显示的tab名字
@@ -148,7 +151,8 @@ public class DropdownTabLayout extends TabLayout {
 
             int[] location = new int[2];
             v.getLocationOnScreen(location);
-            int x = wm.getDefaultDisplay().getWidth()/4 * 2;
+//            int x = wm.getDefaultDisplay().getWidth()/4 * 2;
+            int x = 0;
             int y = location[1] + v.getHeight();
             popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, x, y);
         }
@@ -166,8 +170,11 @@ public class DropdownTabLayout extends TabLayout {
         void selected(int tabPosition, int listPosition);
     }
     private OnTabSelectedListener onTabSelectedListener;
+
     public void setOnTabSelectedListener(OnTabSelectedListener onTabSelectedListener){
         this.onTabSelectedListener = onTabSelectedListener;
     }
+
+
 
 }
