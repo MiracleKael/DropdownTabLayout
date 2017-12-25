@@ -20,7 +20,7 @@ allprojects {
 	
 ```
 dependencies {
-	        compile 'com.github.jiaojingLdy:DropdownTabLayoutSample:V1.0'
+	         compile 'com.github.jiaojingLdy:DropdownTabLayout:V1.0'
 	}
 ```
 
